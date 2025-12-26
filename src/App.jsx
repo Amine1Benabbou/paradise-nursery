@@ -1,8 +1,9 @@
 import { useState } from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import LandingPage from './pages/LandingPage'
-import ProductListingPage from './pages/ProductListingPage'
-import ShoppingCartPage from './pages/ShoppingCartPage'
+import ProductList from './pages/ProductList'
+import CartItem from './pages/CartItem'
+import AboutUs from './pages/AboutUs'
 import './App.css'
 
 function App() {
@@ -54,7 +55,7 @@ function App() {
           <Route 
             path="/products" 
             element={
-              <ProductListingPage 
+              <ProductList 
                 cart={cart}
                 totalItems={getTotalItems()}
                 onAddToCart={addToCart}
@@ -64,7 +65,7 @@ function App() {
           <Route 
             path="/cart" 
             element={
-              <ShoppingCartPage 
+              <CartItem 
                 cart={cart}
                 totalItems={getTotalItems()}
                 totalPrice={getTotalPrice()}
@@ -72,6 +73,10 @@ function App() {
                 onRemoveFromCart={removeFromCart}
               />
             } 
+          />
+          <Route 
+            path="/about" 
+            element={<AboutUs />}
           />
         </Routes>
       </div>
